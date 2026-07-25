@@ -1,0 +1,64 @@
+.home-page .hero {
+  background: transparent;
+  color: var(--primary-dark);
+  padding: 4rem 0 2.5rem;
+  text-align: left;
+}
+
+.home-page .hero h1 {
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+
+.home-page .hero p {
+  opacity: 0.85;
+  font-size: 1rem;
+  color: var(--gray-700);
+}
+
+.home-content {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 2rem;
+  padding: 2rem 1.25rem;
+}
+
+.filters-panel {
+  padding: 1.5rem;
+  height: fit-content;
+  position: sticky;
+  top: 80px;
+}
+
+.filters-panel h2 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.products-header {
+  margin-bottom: 1.5rem;
+}
+
+.products-header h2 {
+  font-size: 1.125rem;
+  color: var(--gray-500);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .home-content {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-panel {
+    position: static;
+  }
+}

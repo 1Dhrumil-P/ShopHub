@@ -1,0 +1,20 @@
+.footer {
+  background: white;
+  border-top: 1px solid var(--gray-200);
+  margin-top: 3rem;
+  padding: 2.25rem 0;
+  text-align: center;
+  color: var(--gray-500);
+  font-size: 0.875rem;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+.footer-note {
+  font-size: 0.8125rem;
+}

@@ -1,0 +1,104 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.product-card:hover {
+  /* keep subtle shadow but no lift to avoid arising feel */
+  box-shadow: var(--shadow-lg);
+}
+
+.product-image-link {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: var(--gray-100);
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+  display: block;
+  border-radius: 0;
+}
+
+.product-body {
+  padding: 0.5rem 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.25rem;
+}
+
+.product-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.product-meta-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.product-meta-right { display: flex; align-items: center; }
+
+.product-category {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.product-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  line-height: 1.2;
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.product-name:hover { color: var(--primary-dark); }
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin: 0;
+}
+
+.product-actions { display: none; }
+
+/* Hover: zoom image */
+.product-card:hover .product-image { transform: scale(1.06); }
+
+/* Wishlist overlay button */
+.wishlist-overlay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: none;
+  padding: 0.4rem 0.55rem;
+  border: none;
+  background: rgba(255,255,255,0.9);
+  color: var(--gray-900);
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1;
+  border-radius: 0;
+}
+
+.product-image-link:hover .wishlist-overlay,
+.product-card:hover .wishlist-overlay {
+  display: inline-flex;
+}
+
+.wish-empty { color: var(--gray-700); background: rgba(255,255,255,0.9); }
+.wish-filled { color: var(--primary-dark); background: rgba(255,255,255,0.9); }
