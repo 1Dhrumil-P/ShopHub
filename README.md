@@ -6,9 +6,9 @@ A full-stack e-commerce web application with role-based authentication, product 
 
 | Service  | URL |
 |----------|-----|
-| Frontend | _Deploy to Vercel and add URL here_ |
-| Backend  | _Deploy to Render and add URL here_ |
-| GitHub   | _Add your repository URL here_ |
+| Frontend | _https://shop-hub-ruby.vercel.app_ |
+| Backend  | _https://shophub-ecbr.onrender.com_ |
+| GitHub   | _https://github.com/1Dhrumil-P/ShopHub_ |
 
 ## Tech Stack
 
@@ -198,7 +198,7 @@ After deploy, run seed once via Render shell: `npm run seed`
 
 1. Login as `user@demo.com`
 2. Browse products → Add to cart
-3. Checkout with Razorpay test card: `4111 1111 1111 1111`
+3. Checkout with Razorpay test card: `4100 2800 0000 1007`
 4. Confirm order appears in My Orders
 5. Login as admin → verify stats dashboard
 
@@ -206,7 +206,7 @@ After deploy, run seed once via Render shell: `npm run seed`
 
 Use these test details in Razorpay checkout:
 
-- **Card**: 4111 1111 1111 1111
+- **Card**: 4100 2800 0000 1007
 - **Expiry**: Any future date
 - **CVV**: Any 3 digits
 - **OTP**: Any 6 digits (test mode)
@@ -221,23 +221,37 @@ Add screenshots to `docs/screenshots/`:
 
 ## Git Workflow
 
-This project follows milestone-based commits:
+Use a simple GitHub flow for all changes:
 
-```
-feat: initial project setup with folder structure
-feat: add database models and schema design
-feat: implement JWT auth and role-based middleware
-feat: add product CRUD with Cloudinary upload
-feat: add cart and wishlist endpoints
-feat: integrate Razorpay payment with signature verification
-feat: add order history and role dashboards
-feat: build React frontend with product listing and filters
-feat: add cart, wishlist, and checkout UI
-feat: add admin dashboard and deployment configs
-docs: add README with setup and credentials
+```bash
+git checkout main
+git pull origin main
+git checkout -b feature/<short-name>
 ```
 
-Create a feature branch for at least one feature and merge via Pull Request.
+Make small, focused commits using conventional commit messages:
+
+```bash
+git add .
+git commit -m "feat: add user registration flow"
+git push -u origin feature/<short-name>
+```
+
+Suggested commit types:
+
+- `feat:` for new features
+- `fix:` for bug fixes
+- `docs:` for documentation updates
+- `refactor:` for code cleanup
+- `chore:` for setup or maintenance
+
+Before merging:
+
+1. Open a Pull Request from your feature branch
+2. Review the changes and test the app
+3. Merge into `main` only after approval
+
+> Avoid committing directly to `main`. Keep `main` stable and deploy only after a reviewed PR is merged.
 
 ## License
 
