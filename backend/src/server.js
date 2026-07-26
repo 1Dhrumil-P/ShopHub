@@ -40,13 +40,22 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
+app.get('/health', (_req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
 
 app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
 app.use('/api/products', productRoutes);
+app.use('/products', productRoutes);
 app.use('/api/cart', cartRoutes);
+app.use('/cart', cartRoutes);
 app.use('/api/wishlist', wishlistRoutes);
+app.use('/wishlist', wishlistRoutes);
 app.use('/api/orders', orderRoutes);
+app.use('/orders', orderRoutes);
 app.use('/api/users', userRoutes);
+app.use('/users', userRoutes);
 
 app.use((err, _req, res, _next) => {
   const message = err.message || 'Server error';

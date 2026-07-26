@@ -1,6 +1,36 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const fallbackBaseURL = import.meta.env.PROD
+  ? 'https://shophub-ecbr.onrender.com/api'
+  : 'http://localhost:5000/api';
+
+const normalizeBaseURL = (value) => {
+  const raw = (value || fallbackBaseURL).trim();
+  const trimmed = raw.replace(/\/+$/, '');
+
+  if (trimmed.endsWith('/api')) {
+    return `${trimmed}/`;
+  }
+
+  if (trimmed.endsWith('/auth') || trimmed.endsWith('/products') || trimmed.endsWith('/cart') || trimmed.endsWith('/orders') || trimmed.endsWith('/users') || trimmed.endsWith('/wishlist')) {
+    return `${trimmed}/`;
+  }
+
+  return `${trimmed}/api/`;
+};
+
+const resolveApiBaseURL = () => {
+  const configuredValue = import.meta.env.VITE_API_URL;
+
+  if (import.meta.env.PROD) {
+    const isLocalValue = /^(https?:\/\/)?(localhost|127\.0\.0\.1)(:\d+)?(\/.*)?$/i.test(configuredValue || '');
+    return normalizeBaseURL(isLocalValue ? fallbackBaseURL : configuredValue || fallbackBaseURL);
+  }
+
+  return normalizeBaseURL(configuredValue || fallbackBaseURL);
+};
+
+const API_URL = resolveApiBaseURL();
 
 const api = axios.create({
   baseURL: API_URL,
