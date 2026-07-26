@@ -63,12 +63,12 @@ export default function Login() {
           Don't have an account? <Link to="/register">Register</Link>
         </p>
 
-        {/* <div className="demo-credentials">
+        <div className="demo-credentials">
           <p><strong>Demo Credentials:</strong></p>
           <p>Admin: admin@demo.com / admin123</p>
           <p>Sales: sales@demo.com / sales123</p>
           <p>User: user@demo.com / user123</p>
-        </div> */}
+        </div>
       </div>
     </div>
   );
