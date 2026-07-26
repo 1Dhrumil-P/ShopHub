@@ -16,25 +16,44 @@ export default function Navbar() {
         </Link>
 
         <div className="navbar-links">
-          <NavLink to="/" end>Products</NavLink>
+          <NavLink to="/" end className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+            Products
+          </NavLink>
 
           {user && canManageProducts && (
-            <NavLink to="/products/manage">Manage Products</NavLink>
+            <NavLink to="/products/manage" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+              Manage Products
+            </NavLink>
           )}
 
           {user && user.role === 'user' && (
             <>
-              <NavLink to="/wishlist">Wishlist</NavLink>
-              <NavLink to="/cart" className="cart-link">
+              <NavLink to="/wishlist" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+                Wishlist
+              </NavLink>
+              <NavLink
+                to="/cart"
+                className={({ isActive }) => `cart-link nav-link${isActive ? ' active' : ''}`}
+              >
                 Cart
                 {count > 0 && <span className="cart-badge">{count}</span>}
               </NavLink>
-              <NavLink to="/orders">My Orders</NavLink>
+              <NavLink to="/orders" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+                My Orders
+              </NavLink>
             </>
           )}
 
-          {isSales && <NavLink to="/sales/orders">Sales Orders</NavLink>}
-          {isAdmin && <NavLink to="/admin">Admin Dashboard</NavLink>}
+          {isSales && (
+            <NavLink to="/sales/orders" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+              Sales Orders
+            </NavLink>
+          )}
+          {isAdmin && (
+            <NavLink to="/admin" className={({ isActive }) => `nav-link${isActive ? ' active' : ''}`}>
+              Admin Dashboard
+            </NavLink>
+          )}
         </div>
 
         <div className="navbar-actions">
